@@ -1,0 +1,12 @@
+const express=require('express')
+const router=express.Router()
+const SoppingCardController=require('../Controller/SoppingCardController')
+const tokenJWT=require('../Middleware/tokenJWT')
+router.get('/',tokenJWT,SoppingCardController.allShoppingCard)
+ router.get('/singel',tokenJWT,SoppingCardController.singleShoppingCard)
+router.post('/',tokenJWT,SoppingCardController.addShoppingCard)
+router.delete('/:id',tokenJWT,SoppingCardController.deleteShoppingCard)
+router.put('/',tokenJWT,SoppingCardController.updateShoppingCard)
+router.put('/sc',tokenJWT,SoppingCardController.updateAllShoppingCard)
+router.get('/api/me',tokenJWT,SoppingCardController.me)
+module.exports=router
